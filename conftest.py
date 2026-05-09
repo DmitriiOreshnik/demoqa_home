@@ -9,3 +9,12 @@ def driver():
     yield driver
 
     driver.quit()
+
+
+@pytest.fixture
+def browser():
+    browser = webdriver.Chrome()
+
+    yield browser
+
+    browser.quit()
