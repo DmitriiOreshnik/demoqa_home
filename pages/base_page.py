@@ -10,4 +10,7 @@ class BasePage:
         return self.driver.get(self.base_url)
 
     def find_element(self, locator):
+        if locator.startswith('//'):
+            return self.driver.find_element(By.XPATH, locator)
+
         return self.driver.find_element(By.CSS_SELECTOR, locator)
